@@ -143,6 +143,14 @@ export default class Pipeline extends LightningElement {
       if (debugDiv) debugDiv.textContent = this.error;
       return;
     }
+
+    window.mermaid.initialize({
+      startOnLoad: false,
+      themeVariables: {
+        clusterBkg: "none",
+      },
+    });
+
     window.mermaid
       .render("graphDiv", diagram)
       .then(({ svg }) => {
